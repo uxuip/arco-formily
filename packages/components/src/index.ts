@@ -1,1 +1,1 @@
-console.log('hello arco')
+export * from './input'
