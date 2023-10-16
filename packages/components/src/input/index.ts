@@ -1,31 +1,26 @@
 import { Input as AInput } from '@arco-design/web-vue'
 import { connect, mapProps } from '@formily/vue'
 import { composeExport } from '../__builtins__/shared'
+import { typeable } from '../__builtins__/shared/maps'
 
 const Input = connect(
   AInput,
   mapProps({
-    value: 'modelValue',
-    readOnly: 'readonly',
-    onInput: true,
+    ...typeable,
   }),
 )
 
 const InputPassword = connect(
   AInput.Password,
   mapProps({
-    value: 'modelValue',
-    readOnly: 'readonly',
-    onInput: true,
+    ...typeable,
   }),
 )
 
 const InputSearch = connect(
   AInput.Search,
   mapProps({
-    value: 'modelValue',
-    readOnly: 'readonly',
-    onInput: true,
+    ...typeable,
   }),
 )
 
