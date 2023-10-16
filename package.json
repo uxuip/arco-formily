@@ -1,0 +1,15 @@
+{
+  "name": "arco-formily",
+  "version": "0.0.1",
+  "private": true,
+  "author": "uxuip",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {
+    "@uxuip/eslint-config-ts": "^0.1.8",
+    "eslint": "^8.51.0"
+  },
+  "eslintConfig": {
+    "extends": ["@uxuip/ts"]
+  }
+}
