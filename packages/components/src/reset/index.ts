@@ -3,7 +3,7 @@ import { observer } from '@formily/reactive-vue'
 import { defineComponent } from 'vue'
 import { Button } from '@arco-design/web-vue'
 
-const Reset = observer(
+export const Reset = observer(
   defineComponent({
     name: 'FReset',
     props: {
@@ -43,7 +43,3 @@ const Reset = observer(
     },
   }),
 )
-
-export {
-  Reset,
-}

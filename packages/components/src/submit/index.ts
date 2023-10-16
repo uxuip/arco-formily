@@ -12,7 +12,7 @@ export interface ISubmitProps {
   onSubmitFailed?: (feedbacks: IFormFeedback[]) => void
 }
 
-const Submit = observer(
+export const Submit = observer(
   defineComponent({
     name: 'FSubmit',
     props: ['onClick', 'onSubmit', 'onSubmitSuccess', 'onSubmitFailed'],
@@ -55,7 +55,3 @@ const Submit = observer(
     },
   }),
 )
-
-export {
-  Submit,
-}
