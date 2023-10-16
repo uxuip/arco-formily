@@ -1,5 +1,6 @@
 export * from './input'
 export * from './submit'
+export * from './reset'
 export * from './textarea'
 export * from './input-number'
 export * from './switch'
