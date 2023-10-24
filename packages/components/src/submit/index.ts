@@ -31,7 +31,7 @@ export const Submit = observer(
         return h(
           Button,
           {
-            nativeType: attrs?.submit ? 'button' : 'submit',
+            htmlType: attrs?.submit ? 'button' : 'submit',
             type: 'primary',
             ...attrs,
             loading: attrs.loading !== undefined ? attrs.loading : form?.submitting,
