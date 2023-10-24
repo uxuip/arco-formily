@@ -16,3 +16,5 @@ export * from './checkbox'
 export * from './date-picker'
 export * from './time-picker'
 export * from './upload'
+
+export * from './config'
