@@ -2,39 +2,47 @@ import { h, useParentForm } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { defineComponent } from 'vue'
 import { Button } from '@arco-design/web-vue'
+import type { IFormFeedback } from '@formily/core'
+import type { ButtonInstance } from '@arco-design/web-vue'
+
+type ButtonProps = ButtonInstance['$props']
+
+export interface IResetProps extends ButtonProps {
+  forceClear?: boolean
+  validate?: boolean
+  onClick?: (...e: any[]) => any
+  onResetValidateSuccess?: (payload: any) => void
+  onResetValidateFailed?: (feedbacks: IFormFeedback[]) => void
+}
 
 export const Reset = observer(
   defineComponent({
     name: 'FReset',
-    props: {
-      forceClear: {
-        type: Boolean,
-        default: false,
-      },
-      validate: {
-        type: Boolean,
-        default: false,
-      },
-    },
-    setup(props, { attrs, slots }: any) {
+    props: [
+      'forceClear',
+      'validate',
+      'onClick',
+      'onResetValidateSuccess',
+      'onResetValidateFailed',
+    ],
+    setup(props: IResetProps, { attrs, slots }) {
       const formRef = useParentForm()
       return () => {
-        const form = formRef?.value
         return h(
           Button,
           {
             ...attrs,
             onClick: (e: MouseEvent) => {
-              if (attrs?.click && attrs.click(e) === false)
+              if (props?.onClick && props.onClick(e) === false)
                 return
 
-              form
+              formRef?.value
                 ?.reset('*', {
                   forceClear: props.forceClear,
                   validate: props.validate,
                 })
-                .then(attrs.resetValidateSuccess)
-                .catch(attrs.resetValidateFailed)
+                .then(props.onResetValidateSuccess)
+                .catch(props.onResetValidateFailed)
             },
           },
           slots,
