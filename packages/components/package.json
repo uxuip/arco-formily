@@ -14,14 +14,14 @@
     "vue": "^3.1.0"
   },
   "dependencies": {
-    "@formily/core": "^2.2.29",
-    "@formily/reactive-vue": "^2.2.29",
-    "@formily/shared": "^2.2.29",
-    "@formily/vue": "^2.2.29"
+    "@formily/core": "^2.3.0",
+    "@formily/reactive-vue": "^2.3.0",
+    "@formily/shared": "^2.3.0",
+    "@formily/vue": "^2.3.0"
   },
   "devDependencies": {
     "@arco-design/web-vue": "^2.52.1",
     "tsup": "^7.2.0",
-    "vue": "^3.1.0"
+    "vue": "^3.3.6"
   }
 }
