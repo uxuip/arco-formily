@@ -5,6 +5,8 @@ import { Button } from '@arco-design/web-vue'
 import type { ButtonInstance } from '@arco-design/web-vue'
 import type { IFormFeedback } from '@formily/core'
 
+import '@arco-design/web-vue/es/button/style/css'
+
 type ButtonProps = ButtonInstance['$props']
 
 export interface ISubmitProps extends ButtonProps {

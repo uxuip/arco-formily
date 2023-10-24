@@ -3,6 +3,8 @@ import { connect, mapProps } from '@formily/vue'
 import type { TreeNodeData } from '@arco-design/web-vue'
 import type { Field, FieldDataSource } from '@formily/core'
 
+import '@arco-design/web-vue/es/tree-select/style/css'
+
 export const TreeSelect = connect(
   ATreeSelect,
   mapProps(

@@ -2,6 +2,8 @@ import { isVoidField } from '@formily/core'
 import { connect, mapProps } from '@formily/vue'
 import { FormItem as AFormItem } from '@arco-design/web-vue'
 
+import '@arco-design/web-vue/es/form/style/css'
+
 export const FormItem = connect(
   AFormItem,
   mapProps(

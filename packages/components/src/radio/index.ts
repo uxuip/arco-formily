@@ -4,6 +4,8 @@ import { defineComponent, h } from 'vue'
 import { typeable } from '../__builtins__/shared/maps'
 import { composeExport } from '../__builtins__/shared'
 
+import '@arco-design/web-vue/es/radio/style/css'
+
 const _Radio = connect(
   defineComponent({
     setup(_, { attrs }) {

@@ -3,6 +3,8 @@ import { connect, mapProps } from '@formily/vue'
 import { typeable } from '../__builtins__/shared/maps'
 import { composeExport } from '../__builtins__/shared'
 
+import '@arco-design/web-vue/es/date-picker/style/css'
+
 export const MonthPicker = connect(
   ADatePicker.MonthPicker,
   mapProps({

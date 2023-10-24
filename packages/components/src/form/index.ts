@@ -6,6 +6,8 @@ import type { FormInstance } from '@arco-design/web-vue'
 import type { SetupContext } from 'vue'
 import type { Form as FormType, IFormFeedback } from '@formily/core'
 
+import '@arco-design/web-vue/es/form/style/css'
+
 type AFormProps = FormInstance['$props']
 
 export interface FormProps extends Omit<AFormProps, 'rules' | 'model' | 'onSubmit' | 'onSubmitSuccess' | 'onSubmitFailed'> {

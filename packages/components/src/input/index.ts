@@ -3,6 +3,8 @@ import { connect, mapProps } from '@formily/vue'
 import { composeExport } from '../__builtins__/shared'
 import { typeable } from '../__builtins__/shared/maps'
 
+import '@arco-design/web-vue/es/input/style/css'
+
 const InputConnected = connect(
   AInput,
   mapProps({
