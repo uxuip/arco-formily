@@ -33,6 +33,9 @@ importers:
       '@arco-design/web-vue':
         specifier: ^2.52.1
         version: 2.52.1(vue@3.3.6)
+      dayjs:
+        specifier: ^1.11.10
+        version: 1.11.10
       tsup:
         specifier: ^7.2.0
         version: 7.2.0(typescript@5.2.2)
