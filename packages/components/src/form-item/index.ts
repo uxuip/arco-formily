@@ -41,6 +41,7 @@ export const FormItem = connect(
         extra: props.extra || field.description,
         asterisk: props.asterisk ?? (field.required && field.pattern !== 'readPretty'),
         label: props.label ?? field.title,
+        required: field.required,
       }
     },
   ),
