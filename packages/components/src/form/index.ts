@@ -19,46 +19,46 @@ export interface FormProps extends Omit<AFormProps, 'rules' | 'model' | 'onSubmi
 
 export const Form = defineComponent({
   name: 'FForm',
-  setup(_props: FormProps, { attrs, slots }: SetupContext) {
-    const props = {
-      ..._props,
-      ...attrs,
-      // 禁用 arco 的 model 和 rules，使用 formily 进行表单校验
-      model: {},
-      rules: {},
-    }
-
+  props: [
+    'form',
+    'onSubmit',
+    'onSubmitSuccess',
+    'onSubmitFailed',
+  ],
+  setup(props: FormProps, { attrs, slots }: SetupContext) {
     const {
       form,
       onSubmit,
       onSubmitSuccess,
       onSubmitFailed,
-      ...formProps
     } = props
 
     const renderAForm = () => h(
       AForm,
       {
-        ...formProps,
+        ...attrs,
+        // 禁用 arco 的 model 和 rules，使用 formily 进行表单校验
+        model: {},
+        rules: {},
         async onSubmit() {
-          let feedbacks: IFormFeedback[] = []
-          try {
-            await form?.submit(onSubmit)
-              .then(onSubmitSuccess)
-              .catch((error) => {
-                feedbacks = error
-                return typeof onSubmitFailed === 'function'
-                  ? props.onSubmitFailed?.(error)
+          form?.submit(onSubmit)
+            .then(onSubmitSuccess)
+            .catch(async (feedbacks: IFormFeedback[]) => {
+              const hasHandle = typeof onSubmitFailed === 'function'
+              const reason = hasHandle ? await onSubmitFailed?.(feedbacks) : undefined
+
+              if (!hasHandle || reason === undefined || !!reason) {
+                const error = {
+                  form,
+                  feedbacks,
+                  reason,
+                }
+
+                return typeof config.onSubmitFailed === 'function'
+                  ? config.onSubmitFailed?.(error)
                   : Promise.reject(error)
-              })
-          }
-          catch (error) {
-            config.onSubmitFailed?.({
-              form,
-              feedbacks,
-              error,
+              }
             })
-          }
         },
       },
       slots,

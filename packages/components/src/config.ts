@@ -2,7 +2,7 @@ import type { Form, IFormFeedback } from '@formily/core'
 
 interface Config {
   onSubmitFailed?: (
-    data: { form: Form; error: any; feedbacks: IFormFeedback[] }
+    data: { form: Form; reason: any; feedbacks: IFormFeedback[] }
   ) => any
 }
 
