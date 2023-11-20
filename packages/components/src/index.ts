@@ -1,3 +1,5 @@
+export * from './config'
+
 export * from './input'
 export * from './submit'
 export * from './reset'
@@ -16,5 +18,5 @@ export * from './checkbox'
 export * from './date-picker'
 export * from './time-picker'
 export * from './upload'
-
-export * from './config'
+export * from './grid'
+export * from './grid-item'
